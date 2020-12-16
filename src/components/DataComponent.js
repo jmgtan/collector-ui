@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PeopleDataComponent from './PeopleDataComponent';
 import DemographicsDataComponent from './DemographicsDataComponent';
+import BarangayDataComponent from './BarangayDataComponent';
 import UploadBatchDataFileComponent from './UploadBatchDataFileComponent';
 
 function DataComponent() {
@@ -19,6 +20,9 @@ function DataComponent() {
         case "demographics":
             component = <DemographicsDataComponent />;
             break;
+        case "barangay":
+            component = <BarangayDataComponent />;
+            break;
         case 'uploadBatch':
             component = <UploadBatchDataFileComponent />;
             break;
@@ -33,6 +37,9 @@ function DataComponent() {
                     </li>
                     <li class="nav-item">
                         <a class={`nav-link ${subnavItem == "demographics" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('demographics')}}>Demographics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class={`nav-link ${subnavItem == "barangay" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('barangay')}}>Barangay</a>
                     </li>
                     <li class="nav-item">
                         <a class={`nav-link ${subnavItem == "uploadBatch" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('uploadBatch')}}>Upload Batch Data File</a>
