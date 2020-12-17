@@ -26,7 +26,7 @@ function BarangayDataComponent() {
             setTableData(response.data.entities.map((e) => {
                 return [
                     e.id,
-                    e.associatedPersons[0].firstName + " " + e.associatedPersons[0].lastName,
+                    e.person.firstName + " " + e.person.lastName,
                     e.residenceAddress,
                     e.submissionTime
                 ]
