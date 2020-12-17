@@ -66,27 +66,41 @@ function UploadBatchDataFileComponent() {
     }
 
     return (
-        <form onSubmit={doUpload}>
-            {alert}
-            <div class="mb-3">
-                <label for="dataFile" class="form-label">Data File</label>
-                <input type="file" class={`form-control form-control-lg ${check && isInvalidDataFile() ? "is-invalid" : null}`} onChange={e => setBatchFile(e.target.files[0])} />
-                {check && isInvalidDataFile() ? <div class="invalid-feedback">Data File is required</div> : null}
+        <div class="row">
+            <div class="col-8">
+                <form onSubmit={doUpload}>
+                {alert}
+                <div class="mb-3">
+                    <label for="dataFile" class="form-label">Data File</label>
+                    <input type="file" class={`form-control form-control-lg ${check && isInvalidDataFile() ? "is-invalid" : null}`} onChange={e => setBatchFile(e.target.files[0])} />
+                    {check && isInvalidDataFile() ? <div class="invalid-feedback">Data File is required</div> : null}
+                </div>
+                <div class="mb-3">
+                    <label for="handlers" class="form-label">Handler Type</label>
+                    <select class={`form-select form-select-lg ${check && isInvalidHandlerType() ? "is-invalid" : null}`} onChange={e => setHandler(e.target.value)} defaultValue="0" value={handler}>
+                        <option value="0">Select Handler Type</option>
+                        {availableHandlers.map((item) => {
+                            return (
+                                <option value={item}>{item}</option>  
+                            );
+                        })}
+                    </select>
+                    {check && isInvalidHandlerType() ? <div class="invalid-feedback">Handler Type is required</div> : null}
+                </div>
+                <button class="btn btn-primary" type="submit">Upload</button>
+            </form>
             </div>
-            <div class="mb-3">
-                <label for="handlers" class="form-label">Handler Type</label>
-                <select class={`form-select form-select-lg ${check && isInvalidHandlerType() ? "is-invalid" : null}`} onChange={e => setHandler(e.target.value)} defaultValue="0" value={handler}>
-                    <option value="0">Select Handler Type</option>
-                    {availableHandlers.map((item) => {
-                        return (
-                            <option value={item}>{item}</option>  
-                        );
-                    })}
-                </select>
-                {check && isInvalidHandlerType() ? <div class="invalid-feedback">Handler Type is required</div> : null}
+            <div class="col-4">
+                <div>
+                    <p class="h4"><i class="fas fa-file-download"></i> Download Templates</p>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="/templates/kobo_barangay_batch.csv">Barangay Batch File Template</a></li>
+                    </ul>
+                </div>
             </div>
-            <button class="btn btn-primary" type="submit">Upload</button>
-        </form>
+        </div>
     );
 }
 
