@@ -33,16 +33,16 @@ function DataComponent() {
             <div class="col-12">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class={`nav-link ${subnavItem == "people" ? "active" : null}`} aria-current="page" href="#" onClick={() => {subnavClickHandler('people')}}>People</a>
+                        <a class={`nav-link ${subnavItem == "people" ? "active" : null}`} aria-current="page" href="#" onClick={() => {subnavClickHandler('people')}}><i class="fas fa-users"></i> People</a>
                     </li>
-                    <li class="nav-item">
+                    {/* <li class="nav-item">
                         <a class={`nav-link ${subnavItem == "demographics" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('demographics')}}>Demographics</a>
+                    </li> */}
+                    <li class="nav-item">
+                        <a class={`nav-link ${subnavItem == "barangay" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('barangay')}}><i class="fas fa-table"></i> Barangay</a>
                     </li>
                     <li class="nav-item">
-                        <a class={`nav-link ${subnavItem == "barangay" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('barangay')}}>Barangay</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class={`nav-link ${subnavItem == "uploadBatch" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('uploadBatch')}}>Upload Batch Data File</a>
+                        <a class={`nav-link ${subnavItem == "uploadBatch" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('uploadBatch')}}><i class="fas fa-file-upload"></i> Upload Batch Data File</a>
                     </li>
                 </ul>
                 <div class="mt-3">
