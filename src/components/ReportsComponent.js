@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import PeopleDataComponent from './PeopleDataComponent';
-import DemographicsDataComponent from './DemographicsDataComponent';
-import UploadBatchDataFileComponent from './UploadBatchDataFileComponent';
+import Report1Component from './Report1Component';
+import Report2Component from './Report2Component';
+import Report3Component from './Report3Component';
 
 function ReportsComponent() {
-    const [subnavItem, setSubnavItem] = useState("people");
+    const [subnavItem, setSubnavItem] = useState("Report2");
 
     function subnavClickHandler(item) {
         setSubnavItem(item);
@@ -13,14 +13,14 @@ function ReportsComponent() {
     let component = null;
 
     switch (subnavItem) {
-        case "people":
-            component = <PeopleDataComponent />
+        case "Report1":
+            component = <Report1Component />
             break;
-        case "demographics":
-            component = <DemographicsDataComponent />;
+        case "Report2":
+            component = <Report2Component />;
             break;
-        case 'uploadBatch':
-            component = <UploadBatchDataFileComponent />;
+        case 'Report3':
+            component = <Report3Component />;
             break;
     }
 
@@ -29,14 +29,14 @@ function ReportsComponent() {
         <div class="col-12">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class={`nav-link ${subnavItem == "people" ? "active" : null}`} aria-current="page" href="#" onClick={() => {subnavClickHandler('people')}}>Report 1 - Family Profile 2020</a>
+                    <a class={`nav-link ${subnavItem == "Report1" ? "active" : null}`} aria-current="page" href="#" onClick={() => {subnavClickHandler('Report1')}}>Roots of Health Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class={`nav-link ${subnavItem == "demographics" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('demographics')}}>Demographics</a>
+                    <a class={`nav-link ${subnavItem == "Report2" ? "active" : null}`} aria-current="page" href="#" onClick={() => {subnavClickHandler('Report2')}}>Report 2 - Family Profile 2020</a>
                 </li>
                 <li class="nav-item">
-                    <a class={`nav-link ${subnavItem == "uploadBatch" ? "active" : null}`} href="#" onClick={() => {subnavClickHandler('uploadBatch')}}>Upload Batch Data File</a>
-                </li>
+                    <a class={`nav-link ${subnavItem == "Report3" ? "active" : null}`} aria-current="page" href="#" onClick={() => {subnavClickHandler('Report3')}}>Report 3 - Family Profile 2020</a>
+                </li>   
             </ul>
             <div class="mt-3">
                 {component}
