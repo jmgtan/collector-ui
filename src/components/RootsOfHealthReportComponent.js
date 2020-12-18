@@ -12,6 +12,7 @@ function RootsOfHealthReportComponent() {
       sanitationData: []
    });
    const [barangays, setBarangays] = useState([]);
+   // const [downloadFlag, setDownloadFlag] = useState(false);
 
    useEffect(async() => {
       const response = await axios.get(Config.backend+"/data/reports/roots-of-health", principal.getRequestAuthHeader());
@@ -29,8 +30,16 @@ function RootsOfHealthReportComponent() {
       }));
    }, []);
 
+   async function onDownload() {
+      const response = await axios.get(Config.backend+"/data/reports/download", principal.getRequestAuthHeader());
+      window.location = response.data.entity.filename;
+   }
+
    return (
       <div class="table-responsive">
+         <div class="mt-2 mb-2 d-flex justify-content-end">
+            <i class="fas fa-file-download"></i>&nbsp;<a href="#" onClick={onDownload}>Download Report</a>
+         </div>
          <table class="table table-hover">
                <thead>
                   <tr>
