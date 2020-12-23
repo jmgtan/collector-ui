@@ -15,7 +15,7 @@ function BarangayDataComponent() {
 
     const dtHeaders = [
         {"display": "#", "column": "id"},
-        {"display": "Name", "column": "associatedPersons.lastName"},
+        {"display": "Name", "column": "person.lastName"},
         {"display": "Residence Address", "column": "residenceAddress"},
         {"display": "Submission Time", "column": "submissionTime"}
     ];
